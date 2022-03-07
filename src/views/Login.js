@@ -72,7 +72,7 @@ class Login extends Component {
 							<Button type="primary" htmlType="submit" block onClick={this.login}>
 								登录
 							</Button>
-							<div style={{ color: '#999',paddingTop:'10px',textAlign:'center' }}>Tips : 输入任意用户名密码即可</div>
+							<div style={{ color: '#999', paddingTop: '10px', textAlign: 'center' }}>Tips : 输入任意用户名密码即可</div>
 						</FormItem>
 					</Form>
 				</div>
@@ -81,13 +81,9 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-	setUserInfo: data => {
-		dispatch(setUserInfo(data));
-	}
-});
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	state => state,
+	{
+		setUserInfo
+	}
 )(Form.create()(Login));

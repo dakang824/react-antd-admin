@@ -20,7 +20,7 @@ const MainContent = ({ location }) => {
 			<CSSTransition classNames="fade" key={location.pathname} timeout={500}>
 				<Content style={{ padding: '15px' }}>
 					<Switch>
-						{routes.map(ele => handleFilter(ele.permission) && <Route render={() => <ele.component />} key={ele.path} path={ele.path} />)}
+						{routes.map(ele => handleFilter(ele.permission) && <Route component={ele.component} key={ele.path} path={ele.path} />)}
 						<Redirect from="/" exact to="/dashboard" />
 						<Redirect to="/error/404" />
 					</Switch>
@@ -30,5 +30,5 @@ const MainContent = ({ location }) => {
 	);
 };
 
-const mapStateToProps = state => ({ userInfo: state.userInfo });
-export default withRouter(connect(mapStateToProps)(MainContent));
+
+export default withRouter(connect(state => ({ userInfo: state.userInfo }))(MainContent));

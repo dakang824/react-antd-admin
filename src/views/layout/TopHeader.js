@@ -112,31 +112,16 @@ class TopHeader extends Component {
 	}
 }
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-	setCollapse: data => {
-		dispatch(setCollapse(data));
-	},
-	setUserInfo: data => {
-		dispatch(setUserInfo(data));
-	},
-	emptyTag: () => {
-		dispatch(emptyTag());
-	},
-	addTag: data => {
-		dispatch(addTag(data));
-	},
-	setBreadCrumb: data => {
-		dispatch(setBreadCrumb(data));
-	},
-	setTags: data => {
-		dispatch(setTags(data));
-	},
-	setTheme: data => {
-		dispatch(setTheme(data));
-	}
-});
+
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	state => state,
+	{
+		setCollapse,
+		setUserInfo,
+		emptyTag,
+		addTag,
+		setBreadCrumb,
+		setTags,
+		setTheme
+	}
 )(withRouter(TopHeader));

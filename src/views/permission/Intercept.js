@@ -25,5 +25,5 @@ class Intercept extends Component {
 		);
 	}
 }
-const mapStateToProps = state => state;
-export default withRouter(connect(mapStateToProps)(Intercept));
+
+export default withRouter(connect(state => state)(Intercept));

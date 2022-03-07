@@ -82,16 +82,11 @@ class SideNenu extends Component {
 	}
 }
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-	setUserInfo: data => {
-		dispatch(setUserInfo(data));
-	},
-	addTag: data => {
-		dispatch(addTag(data));
-	}
-});
+
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	state => state,
+	{
+		setUserInfo,
+		addTag
+	}
 )(withRouter(SideNenu));

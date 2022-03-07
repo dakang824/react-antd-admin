@@ -45,22 +45,14 @@ class Toggle extends Component {
 		);
 	}
 }
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-	setUserInfo: data => {
-		dispatch(setUserInfo(data));
-	},
-	addTag: data => {
-		dispatch(addTag(data));
-	},
-	removeTag: data => {
-		dispatch(removeTag(data));
-	}
-});
 
 export default withRouter(
 	connect(
-		mapStateToProps,
-		mapDispatchToProps
+		state => state,
+		{
+			setUserInfo,
+			addTag,
+			removeTag
+		}
 	)(Toggle)
 );

@@ -103,19 +103,11 @@ class Tags extends Component {
 	}
 }
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-	addTag: data => {
-		dispatch(addTag(data));
-	},
-	removeTag: data => {
-		dispatch(removeTag(data));
-	},
-	emptyTag: () => {
-		dispatch(emptyTag());
-	}
-});
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	state => state,
+	{
+		addTag,
+		removeTag,
+		emptyTag
+	}
 )(withRouter(Tags));
